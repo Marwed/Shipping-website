@@ -1,0 +1,293 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>FDL Shipping and logistics</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style type="text/css">
+    @font-face{
+        
+    font-family:questa;
+        src:url(questa.otf)l
+    }
+    p{
+         font-family:questa;
+        
+    }
+    #form-div{
+        
+        position: relative;
+        margin: 60px
+    }
+    #jumo{
+        
+        height: 250px;
+    }
+        .jumbotron {
+background-image: url("../iconhome.jpg");
+background-size: cover;}
+    .J-text{
+        
+        color: azure;
+        text-align: center
+    }
+    #slogan{
+        font-size: 30px
+    }
+
+  
+ 
+  
+      </style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+ <script src="jquery.liveaddress.js"></script>
+      <script>jQuery.LiveAddress({key: "{YourKeyHere}", debug: false,
+                                
+                               autocomplete:false,
+                                    stateFilter:"FL",
+                                    autoverify:false,
+                                    invalidMessage:"You entered an unknown address Please check that you are entering the right zip code :",
+                                  target:"US",
+                                
+                                  addresses: [{ 
+                                  address1:"#inputAddress",
+                                  address2:"#inputAddress2",
+                                  locality:"#inputCity",
+                                      administrative_area:"#inputState",
+                                  postal_code:"#inputZip"
+                                  
+                                 }]
+                                 
+                                 }).on("AddressAccepted", function(event, data, previousHandler)
+{
+	
+	
+		if (data.response.isInvalid())
+	{
+		data.address.abort(event);
+	
+	}
+            
+	else
+		previousHandler(event, data);
+	
+});</script>
+      
+  </head>
+  <body>
+
+      <nav id="md-nav" class="navbar fixed-top navbar-expand-lg navbar-light bg-info">
+      <a class="navbar-brand" href="../index.html">FDL Shipping and Logistics </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../Aboutus/aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Schedule Pick up</a>
+          </li>
+          
+            
+         
+        </ul>
+      </div>
+    </nav>
+      
+      <div id="jumo" class="jumbotron jumbotron-fluid">
+  <div class="container">
+ 
+    <p class="J-text" id="slogan" class="lead"> We make shipping to the Caribbean easier than you can ever imagine</p>
+  </div>
+</div>
+      <div id="message"></div>
+      <div id="form-div" class="container">
+      <p class="h1">Schedule a Pick Up</p>
+    <form id="Pickup">
+  
+  <div class="form-group">
+    <label for="inputAddress">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+       <label for="inputState">City</label>
+      <select id="inputCity" class="form-control" required>
+        <option selected>Port St Lucie</option>
+        <option>Fort Pierce</option>
+            <option>Stuart</option>
+            <option>Vero Beach</option>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">State</label>
+      <input class="form-control" id="inputState" type="text" placeholder="Florida" >
+
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputZip">Zip</label>
+      <input type="text" class="form-control" id="inputZip" required>
+    </div>
+  </div>
+        <div class="form-row">
+    <div class="form-group col-6">
+      <label for="inputEmail4">Email</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+    </div>
+      <div class="form-group col-3">
+      <label for="inputPhone">Phone Number</label>
+      <input type="tel" class="form-control" id="inputPhone" placeholder="772-468-8987" required>
+    </div>
+        <div class="form-group col-3">
+      <label for="inputBags">Barrels</label>
+      <input type="number" class="form-control" id="inputBags" min="1" placeholder="1">
+    </div>
+   
+  </div>
+ 
+  <button type="submit" id="submitbtn" class="btn btn-primary" >Submit</button>
+</form>
+      
+      <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+
+     
+      <p style="text-align: center; color: black;"  >&copy; FDL Shipping and logistics </p>
+      
+       
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      
+    
+      <script type="text/javascript">
+          
+          $("#Pickup").submit(function(e){
+                  e.preventDefault();
+             var error=""; 
+              if(!validateEmail($("#inputEmail").val()))
+                 {
+                     
+                    error+="Please check your email</br>";
+                 }
+             
+             if(!phonenumber($("#inputPhone").val()))
+                 {
+                     error+="Please enter valid Phone number";
+                 }
+           
+     if(error!=""){
+         
+     
+          
+               $("#message").html('<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' + error + '</div>');
+         
+    
+          
+     }else{ 
+          
+             var od= new Order(
+              $("#inputEmail").val(),
+              $("#inputPhone").val(),
+              $("#inputBags").val(),
+              $("#inputAddress").val(),
+              $("#inputAddress2").val(),
+              $("#inputCity").val(),
+              $("#inputState").val(),
+              $("#inputZip").val()
+              
+              );
+           
+           
+                
+         
+          $("#Pickup").unbind('submit').submit();
+              
+           
+          }
+             
+          });
+          
+          var Order=  function(email, phone, bags,address, address2,city, ST, Zip){
+           
+                this.email = email;
+              this.phone=phone;
+              this.bags=bags;
+                this.address= address;
+                this.address2= address2;
+                this.city=city;
+                this.ST=ST;
+                this.Zip=Zip;
+             
+          
+          };
+ 
+         
+        function validateEmail(sEmail) {
+
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+    if (filter.test(sEmail)) {
+
+        return true;
+
+    }
+
+    else {
+
+        return false;
+
+    }
+
+}
+          function phonenumber(inputtxt) {
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(phoneno.test(inputtxt)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+       
+      
+          
+    </script>
+      
+      
+  </body>
+</html>
